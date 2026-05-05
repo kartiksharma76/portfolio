@@ -1,0 +1,1028 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio — Kartikey Sharma</title>
+    <meta name="description" content="Professional portfolio showcasing skills, projects and experience." />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+<body>
+
+<!-- ===== AI AVATAR POPUP ===== -->
+<div id="aiAvatarPopup" class="ai-avatar-popup hidden">
+    <div class="ai-avatar-glass" style="position: relative;">
+        <button id="stopAvatarBtn" title="Stop Audio" style="position: absolute; top: 10px; right: 10px; background: none; border: none; font-size: 1.2rem; color: var(--text-dim); transition: 0.3s; z-index: 10;">
+            <i class="fas fa-times-circle"></i>
+        </button>
+        <div class="real-avatar-container">
+            <img src="images/ai_avatar.png" alt="AI Agent" class="real-avatar-img" />
+        </div>
+        <div class="ai-subtitle">AI Protocol Active...</div>
+    </div>
+</div>
+
+<!-- ===== AI ENTRANCE PROTOCOL ===== -->
+<div id="aiEntranceOverlay" class="ai-entrance-overlay">
+    <div id="fallingStar" class="falling-star"></div>
+    
+    <!-- Premium Starry Background Layers -->
+    <div class="entrance-stars-1"></div>
+    <div class="entrance-stars-2"></div>
+
+    <div class="ai-entrance-content" id="btnInitAI" style="cursor: pointer;">
+        <!-- LEFT EARTH -->
+        <div class="earth-container-left">
+            <div class="planetary-ring"></div>
+            <div class="earth-globe"></div>
+            <!-- Satellite Network -->
+            <canvas id="satelliteCanvasLeft" class="satellite-canvas"></canvas>
+            <!-- Atmospheric Glow -->
+            <div class="earth-atmosphere"></div>
+        </div>
+        
+        <!-- RIGHT EARTH -->
+        <div class="earth-container-right">
+            <div class="planetary-ring" style="animation-direction: reverse; border-color: rgba(108, 99, 255, 0.3); box-shadow: 0 0 30px rgba(108, 99, 255, 0.5), inset 0 0 20px rgba(108, 99, 255, 0.3);"></div>
+            <div class="earth-globe"></div>
+            <!-- Satellite Network -->
+            <canvas id="satelliteCanvasRight" class="satellite-canvas"></canvas>
+            <!-- Atmospheric Glow -->
+            <div class="earth-atmosphere"></div>
+        </div>
+
+        <!-- Energy Connection between Earths -->
+        <div class="energy-beam"></div>
+
+        <!-- Animated SVG Hacker Mask -->
+        <div class="svg-avatar-wrapper" id="avatarFace" style="cursor: pointer;">
+            <svg viewBox="0 0 200 250" class="hacker-svg-mask">
+                <defs>
+                    <filter id="glow">
+                        <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+                        <feMerge>
+                            <feMergeNode in="coloredBlur"/>
+                            <feMergeNode in="SourceGraphic"/>
+                        </feMerge>
+                    </filter>
+                </defs>
+
+                <!-- Base Dark Head -->
+                <path d="M 40 50 C 40 10, 160 10, 160 50 C 180 150, 150 230, 100 240 C 50 230, 20 150, 40 50 Z" 
+                      fill="#0b0b14" stroke="#ff003c" stroke-width="2" filter="url(#glow)"/>
+                
+                <!-- Cyber Lines -->
+                <path d="M 100 20 L 100 60 M 35 120 L 60 120 M 165 120 L 140 120" stroke="#00d4aa" stroke-width="2"/>
+
+                <!-- Left Eye -->
+                <path fill="#ff003c" filter="url(#glow)">
+                    <animate attributeName="d" 
+                        values="M 60 100 Q 75 88 90 105 Q 75 112 60 100 Z;
+                                M 60 102 Q 75 102 90 102 Q 75 102 60 102 Z;
+                                M 60 100 Q 75 88 90 105 Q 75 112 60 100 Z;
+                                M 60 100 Q 75 88 90 105 Q 75 112 60 100 Z"
+                        keyTimes="0; 0.05; 0.1; 1" 
+                        dur="4s" repeatCount="indefinite" />
+                </path>
+                
+                <!-- Right Eye -->
+                <path fill="#ff003c" filter="url(#glow)">
+                    <animate attributeName="d" 
+                        values="M 140 100 Q 125 88 110 105 Q 125 112 140 100 Z;
+                                M 140 102 Q 125 102 110 102 Q 125 102 140 102 Z;
+                                M 140 100 Q 125 88 110 105 Q 125 112 140 100 Z;
+                                M 140 100 Q 125 88 110 105 Q 125 112 140 100 Z"
+                        keyTimes="0; 0.05; 0.1; 1" 
+                        dur="4s" repeatCount="indefinite" />
+                </path>
+
+                <!-- Animating Scary Grin -->
+                <path fill="none" stroke="#ff003c" stroke-width="5" filter="url(#glow)" stroke-linecap="round">
+                    <animate attributeName="d" 
+                        values="M 75 170 Q 100 178 125 170;
+                                M 40 155 Q 100 235 160 155;
+                                M 75 170 Q 100 178 125 170"
+                        keyTimes="0; 0.5; 1" 
+                        dur="3.5s" repeatCount="indefinite" />
+                </path>
+            </svg>
+        </div>
+
+        <div class="entrance-text-box" id="btnInitAI" style="cursor: pointer;">
+            <div class="entrance-text-inner">
+                <h2 class="entrance-title">WELCOME <span class="gradient-text">DEVELOPER</span></h2>
+                <p class="entrance-subtitle">Click Here To Go To Kartikey's Portfolio</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ===== HUD SCANNER & CUSTOM CURSOR ===== -->
+<canvas id="aiCanvas" class="ai-canvas"></canvas>
+<div class="hud-scanner"></div>
+<div id="aiCursor"></div>
+<div id="aiCursorTrail"></div>
+
+<!-- ===== NAVBAR ===== -->
+<nav class="navbar" id="navbar">
+    <div class="nav-container">
+        <a href="#home" class="nav-logo">
+            <span class="logo-bracket">&lt;</span>KS<span class="logo-bracket">/&gt;</span>
+        </a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#home" class="nav-link active">Home</a></li>
+            <li><a href="#about" class="nav-link">About</a></li>
+            <li><a href="#skills" class="nav-link">Skills</a></li>
+            <li><a href="#projects" class="nav-link">Projects</a></li>
+            <li><a href="#education" class="nav-link">Education</a></li>
+            <li><a href="#experience" class="nav-link">Experience</a></li>
+            <li><a href="#certifications" class="nav-link">Certs</a></li>
+            <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+        <div class="nav-actions">
+            <button class="theme-toggle" id="themeToggle" title="Toggle theme">
+                <i class="fas fa-moon" id="themeIcon"></i>
+            </button>
+            <button class="btn-login" id="openLoginBtn">Login</button>
+        </div>
+        <button class="hamburger" id="hamburger">
+            <span></span><span></span><span></span>
+        </button>
+    </div>
+</nav>
+
+<!-- ===== HOME / HERO ===== -->
+<section id="home" class="hero-section">
+    <div class="ai-core-container">
+        <div class="ai-core">
+            <div class="ring ring-1"></div>
+            <div class="ring ring-2"></div>
+            <div class="ring ring-3"></div>
+            <div class="core-center"></div>
+        </div>
+    </div>
+    <div class="hero-content reveal" style="z-index: 10;">
+        <p class="hero-greeting">Hello Developer 👋</p>
+        <h1 class="hero-name">Kartikey <span class="gradient-text">Sharma</span></h1>
+        <div class="hero-title">
+            <span>I am a </span>
+            <span class="typed-text" id="typedText"></span>
+            <span class="cursor">|</span>
+        </div>
+        <p class="hero-bio">
+            Aspiring Java Backend Developer with strong hands-on experience in building database-driven web applications using Java, Spring Boot, and MySQL.
+        </p>
+        <div class="hero-actions">
+            <a href="#projects" class="btn-primary">View My Work</a>
+            <a href="#contact" class="btn-outline">Get In Touch</a>
+        </div>
+        <div class="hero-social">
+            <a href="https://github.com/kartiksharma76" target="_blank" class="social-link" title="GitHub"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/kartikey-sharma-ab6a24293" target="_blank" class="social-link" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="mailto:kartiksharma768976@gmail.com" class="social-link" title="Email"><i class="fas fa-envelope"></i></a>
+        </div>
+    </div>
+    <div class="hero-scroll-hint">
+        <span>Scroll Down</span>
+        <i class="fas fa-chevron-down"></i>
+    </div>
+</section>
+
+<!-- ===== STATS BAR ===== -->
+<section class="stats-bar reveal">
+    <div class="stats-container">
+        <div class="stat-item">
+            <h3 class="stat-number" data-target="8">0</h3>
+            <p>Projects Completed</p>
+        </div>
+        <div class="stat-item">
+            <h3 class="stat-number" data-target="15">0</h3>
+            <p>Technologies</p>
+        </div>
+        <div class="stat-item">
+            <h3 class="stat-number" data-target="1">0</h3>
+            <p>Years Experience</p>
+        </div>
+        <div class="stat-item">
+            <h3 class="stat-number" data-target="5">0</h3>
+            <p>Certifications</p>
+        </div>
+    </div>
+</section>
+
+<!-- ===== ABOUT ===== -->
+<section id="about" class="section reveal">
+    <div class="container">
+        <div class="section-header">
+            <p class="section-tag">Who I Am</p>
+            <h2 class="section-title">About <span class="gradient-text">Me</span></h2>
+        </div>
+        <div class="about-grid">
+            <div class="about-image reveal-left">
+                <div class="image-wrapper">
+                    <img src="images/profile.jpg" alt="Kartikey Sharma" style="width: 320px; height: 360px; object-fit: cover; border-radius: var(--radius); border: 2px dashed var(--border);" />
+                    <div class="image-border"></div>
+                </div>
+            </div>
+            <div class="about-content reveal-right">
+                <h3>Aspiring Java Backend Developer</h3>
+                <p>
+                    Aspiring Java Backend Developer with strong hands-on experience in building database-driven web applications using Java, JDBC, Spring Boot, Servlets, JSP, and MySQL.
+                </p>
+                <p>
+                    Good grip on MVC Architecture, Authentication &amp; Session Management, REST Concepts, and CRUD Operations. Also worked with React for frontend integration. Strong base in DSA, OOP, and DBMS.
+                </p>
+                <div class="about-details">
+                    <div class="detail-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Singrauli, Madhya Pradesh, India</span>
+                    </div>
+                    <div class="detail-item">
+                        <i class="fas fa-graduation-cap"></i>
+                        <span>B.Tech in Information Technology</span>
+                    </div>
+                    <div class="detail-item">
+                        <i class="fas fa-briefcase"></i>
+                        <span>Open to Opportunities</span>
+                    </div>
+                    <div class="detail-item">
+                        <i class="fas fa-language"></i>
+                        <span>English, Hindi</span>
+                    </div>
+                </div>
+                <a href="Kartik1.pdf" class="btn-primary" download="Kartik1.pdf">
+                    <i class="fas fa-download"></i> Download Resume
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== SKILLS ===== -->
+<section id="skills" class="section section-alt reveal">
+    <div class="container">
+        <div class="section-header">
+            <p class="section-tag">What I Know</p>
+            <h2 class="section-title">My <span class="gradient-text">Skills</span></h2>
+        </div>
+        <div class="skills-categories">
+            <div class="skill-category reveal">
+                <h3><i class="fas fa-code"></i> Programming &amp; Core</h3>
+                <div class="skill-list">
+                    <div class="skill-item">
+                        <div class="skill-info"><span>Java</span><span>90%</span></div>
+                        <div class="skill-bar"><div class="skill-fill" data-width="90"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info"><span>JavaScript / TypeScript</span><span>80%</span></div>
+                        <div class="skill-bar"><div class="skill-fill" data-width="80"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info"><span>DSA, OOP, DBMS, OS</span><span>85%</span></div>
+                        <div class="skill-bar"><div class="skill-fill" data-width="85"></div></div>
+                    </div>
+                </div>
+            </div>
+            <div class="skill-category reveal">
+                <h3><i class="fas fa-server"></i> Backend</h3>
+                <div class="skill-list">
+                    <div class="skill-item">
+                        <div class="skill-info"><span>JDBC &amp; Spring Boot</span><span>85%</span></div>
+                        <div class="skill-bar"><div class="skill-fill" data-width="85"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info"><span>Servlets &amp; JSP</span><span>80%</span></div>
+                        <div class="skill-bar"><div class="skill-fill" data-width="80"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info"><span>REST API Design</span><span>82%</span></div>
+                        <div class="skill-bar"><div class="skill-fill" data-width="82"></div></div>
+                    </div>
+                </div>
+            </div>
+            <div class="skill-category reveal">
+                <h3><i class="fas fa-sitemap"></i> Frontend &amp; DB</h3>
+                <div class="skill-list">
+                    <div class="skill-item">
+                        <div class="skill-info"><span>HTML &amp; CSS</span><span>85%</span></div>
+                        <div class="skill-bar"><div class="skill-fill" data-width="85"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info"><span>React.js</span><span>75%</span></div>
+                        <div class="skill-bar"><div class="skill-fill" data-width="75"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info"><span>MySQL &amp; SQL</span><span>85%</span></div>
+                        <div class="skill-bar"><div class="skill-fill" data-width="85"></div></div>
+                    </div>
+                </div>
+            </div>
+            <div class="skill-category reveal">
+                <h3><i class="fas fa-tools"></i> Tools &amp; Environment</h3>
+                <div class="skill-list">
+                    <div class="skill-item">
+                        <div class="skill-info"><span>Git &amp; GitHub</span><span>88%</span></div>
+                        <div class="skill-bar"><div class="skill-fill" data-width="88"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info"><span>Eclipse &amp; VS Code</span><span>90%</span></div>
+                        <div class="skill-bar"><div class="skill-fill" data-width="90"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info"><span>Linux / CLI</span><span>75%</span></div>
+                        <div class="skill-bar"><div class="skill-fill" data-width="75"></div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Tech Badges -->
+        <div class="tech-badges reveal">
+            <span class="badge"><i class="fab fa-java"></i> Java</span>
+            <span class="badge"><i class="fas fa-leaf"></i> Spring Boot</span>
+            <span class="badge"><i class="fas fa-database"></i> MySQL</span>
+            <span class="badge"><i class="fab fa-html5"></i> HTML5</span>
+            <span class="badge"><i class="fab fa-css3-alt"></i> CSS3</span>
+            <span class="badge"><i class="fab fa-js"></i> JavaScript</span>
+            <span class="badge"><i class="fab fa-react"></i> React</span>
+            <span class="badge"><i class="fab fa-git-alt"></i> Git</span>
+        </div>
+    </div>
+</section>
+
+<!-- ===== PROJECTS ===== -->
+<section id="projects" class="section reveal">
+    <div class="container">
+        <div class="section-header">
+            <p class="section-tag">What I've Built</p>
+            <h2 class="section-title">My <span class="gradient-text">Projects</span></h2>
+        </div>
+        <div class="filter-tabs">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="web">Web Apps</button>
+            <button class="filter-btn" data-filter="api">APIs</button>
+            <button class="filter-btn" data-filter="ml">AI / ML</button>
+        </div>
+        <div class="projects-grid" id="projectsGrid">
+            <div class="project-card reveal" data-category="web">
+                <div class="project-image">
+                    <div class="project-img-placeholder"><i class="fas fa-graduation-cap"></i></div>
+                    <div class="project-overlay">
+                        <a href="#" class="project-btn"><i class="fab fa-github"></i> Code</a>
+                        <a href="#" class="project-btn"><i class="fas fa-external-link-alt"></i> Live</a>
+                    </div>
+                </div>
+                <div class="project-info">
+                    <div class="project-tags">
+                        <span class="tag">Java</span><span class="tag">JDBC</span><span class="tag">React</span><span class="tag">MySQL</span>
+                    </div>
+                    <h3>Smart Education System</h3>
+                    <p>Built a student record and performance tracking system. Implemented modular architecture following MVC design pattern. Integrated React frontend seamlessly with a Java backend.</p>
+                </div>
+            </div>
+            <div class="project-card reveal" data-category="web">
+                <div class="project-image">
+                    <div class="project-img-placeholder"><i class="fas fa-building"></i></div>
+                    <div class="project-overlay">
+                        <a href="#" class="project-btn"><i class="fab fa-github"></i> Code</a>
+                        <a href="#" class="project-btn"><i class="fas fa-external-link-alt"></i> Live</a>
+                    </div>
+                </div>
+                <div class="project-info">
+                    <div class="project-tags">
+                        <span class="tag">Java</span><span class="tag">Servlets</span><span class="tag">JSP</span><span class="tag">MySQL</span>
+                    </div>
+                    <h3>Smart Hostel Management System</h3>
+                    <p>Student registration, authentication, room allocation, food feedback, and complaint management. Utilized session handling and RequestDispatcher with a strong MVC foundation.</p>
+                </div>
+            </div>
+            <div class="project-card reveal" data-category="api">
+                <div class="project-image">
+                    <div class="project-img-placeholder"><i class="fas fa-terminal"></i></div>
+                    <div class="project-overlay">
+                        <a href="#" class="project-btn"><i class="fab fa-github"></i> Code</a>
+                        <a href="#" class="project-btn"><i class="fas fa-external-link-alt"></i> Live</a>
+                    </div>
+                </div>
+                <div class="project-info">
+                    <div class="project-tags">
+                        <span class="tag">Java</span><span class="tag">Spring Boot</span><span class="tag">SQL</span><span class="tag">HTML/CSS</span>
+                    </div>
+                    <h3>KartikTerminal: Code Execution Platform</h3>
+                    <p>Secure gamified code execution platform with a sandboxed environment, Google OAuth2, real-time analytics, and leaderboards. Built scalable REST APIs using Spring Boot and optimized SQL schemas.</p>
+                </div>
+            </div>
+            <div class="project-card reveal" data-category="ml">
+                <div class="project-image">
+                    <div class="project-img-placeholder"><i class="fas fa-brain"></i></div>
+                    <div class="project-overlay">
+                        <a href="#" class="project-btn"><i class="fab fa-github"></i> Code</a>
+                        <a href="#" class="project-btn"><i class="fas fa-external-link-alt"></i> Live</a>
+                    </div>
+                </div>
+                <div class="project-info">
+                    <div class="project-tags">
+                        <span class="tag">Java</span><span class="tag">Spring Boot</span><span class="tag">JS</span><span class="tag">AI</span>
+                    </div>
+                    <h3>AI-Based Personality Analysis App</h3>
+                    <div style="font-size: 0.9rem; line-height: 1.4; max-height: 150px; overflow-y: auto; padding-right: 5px; margin-bottom: 10px;">
+                        <p style="margin-bottom: 8px;">Developed a full-stack AI-powered Personality Analysis Web Application using Java Spring Boot, HTML, CSS, and JavaScript that evaluates user behavior and learning style through a structured questionnaire.</p>
+                        <p style="margin-bottom: 8px;">The system presents users with a series of multiple-choice questions mapped to four personality types (Red, Blue, Green, Yellow). Each response dynamically contributes to a backend scoring algorithm, which computes the dominant personality type upon submission.</p>
+                        <p style="margin-bottom: 8px;">Implemented a RESTful Spring Boot backend to handle question flow, scoring logic, and result computation, while the frontend ensures an interactive and user-friendly experience.</p>
+                        <p>Integrated AI-based analysis to enhance personality insights by generating detailed reports including strengths, weaknesses, learning styles, and management tendencies. Designed optional database integration (MySQL) to persist user responses and results.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card reveal" data-category="web">
+                <div class="project-image">
+                    <div class="project-img-placeholder"><i class="fas fa-book"></i></div>
+                    <div class="project-overlay">
+                        <a href="#" class="project-btn"><i class="fab fa-github"></i> Code</a>
+                        <a href="#" class="project-btn"><i class="fas fa-external-link-alt"></i> Live</a>
+                    </div>
+                </div>
+                <div class="project-info">
+                    <div class="project-tags">
+                        <span class="tag">Spring Boot</span><span class="tag">JSP/Servlets</span><span class="tag">JDBC</span><span class="tag">MySQL</span>
+                    </div>
+                    <h3>Library Management System</h3>
+                    <div style="font-size: 0.9rem; line-height: 1.4; max-height: 150px; overflow-y: auto; padding-right: 5px; margin-bottom: 10px;">
+                        <p style="margin-bottom: 8px;">Developed a full-stack Library Management System using Java, Spring Boot, JDBC, JSP/Servlets, and MySQL to efficiently manage book records and user transactions in a digital library environment.</p>
+                        <p style="margin-bottom: 8px;">The system supports core functionalities such as book issuance, return management, user registration, and inventory tracking. Implemented backend logic to handle CRUD operations, fine calculation, and real-time availability updates.</p>
+                        <p style="margin-bottom: 8px;">Designed a responsive frontend interface for users and administrators to interact with the system seamlessly. Integrated a relational database to store book details, user data, and transaction history, ensuring data consistency and scalability.</p>
+                        <p>Optimized database queries and structured the application using MVC architecture to improve maintainability and performance.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card reveal" data-category="api">
+                <div class="project-image">
+                    <div class="project-img-placeholder"><i class="fas fa-money-check-alt"></i></div>
+                    <div class="project-overlay">
+                        <a href="#" class="project-btn"><i class="fab fa-github"></i> Code</a>
+                        <a href="#" class="project-btn"><i class="fas fa-external-link-alt"></i> Live</a>
+                    </div>
+                </div>
+                <div class="project-info">
+                    <div class="project-tags">
+                        <span class="tag">Spring Boot</span><span class="tag">REST API</span><span class="tag">MySQL</span><span class="tag">Java</span>
+                    </div>
+                    <h3>KartikATM – Smart Banking System</h3>
+                    <div style="font-size: 0.9rem; line-height: 1.4; max-height: 150px; overflow-y: auto; padding-right: 5px; margin-bottom: 10px;">
+                        <p style="margin-bottom: 8px;">Developed Kartik ATM – Smart Banking System, a full-stack Spring Boot-based banking application that simulates real-world ATM operations with secure and scalable architecture.</p>
+                        <p style="margin-bottom: 8px;">The system enables users to perform core banking operations such as secure login (PIN authentication), balance inquiry, cash withdrawal, deposit, and transaction history tracking through RESTful APIs and an interactive frontend.</p>
+                        <p style="margin-bottom: 8px;">Implemented Spring Boot backend with layered architecture (Controller, Service, Repository) to handle business logic, transaction processing, and database interactions efficiently. Ensured data integrity using transactional management and validation mechanisms.</p>
+                        <p>Integrated MySQL database for persistent storage. Applied OOP principles, exception handling, and security practices (basic encryption for PIN) to enhance system reliability.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card reveal" data-category="web">
+                <div class="project-image">
+                    <div class="project-img-placeholder"><i class="fas fa-gamepad"></i></div>
+                    <div class="project-overlay">
+                        <a href="#" class="project-btn"><i class="fab fa-github"></i> Code</a>
+                        <a href="#" class="project-btn"><i class="fas fa-external-link-alt"></i> Live</a>
+                    </div>
+                </div>
+                <div class="project-info">
+                    <div class="project-tags">
+                        <span class="tag">Java</span><span class="tag">Spring Boot</span><span class="tag">JS</span><span class="tag">MySQL</span>
+                    </div>
+                    <h3>2048 Puzzle Game</h3>
+                    <div style="font-size: 0.9rem; line-height: 1.4; max-height: 150px; overflow-y: auto; padding-right: 5px; margin-bottom: 10px;">
+                        <p style="margin-bottom: 8px;">Developed a web-based version of the classic 2048 Puzzle Game using Java Spring Boot, HTML, CSS, and JavaScript, integrating frontend game logic with backend services for state management and score tracking.</p>
+                        <p style="margin-bottom: 8px;">Implemented core game mechanics including tile movement, merging logic, score calculation, and win/lose conditions using JavaScript, while leveraging Spring Boot to manage game sessions, store high scores, and handle API requests.</p>
+                        <p style="margin-bottom: 8px;">Designed a responsive and interactive user interface that dynamically updates the game grid in real-time. Integrated backend APIs for persistent score storage and leaderboard functionality using MySQL.</p>
+                        <p>Structured the application using a modular architecture, ensuring scalability and maintainability while demonstrating strong problem-solving and algorithmic thinking.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card reveal" data-category="ml">
+                <div class="project-image">
+                    <div class="project-img-placeholder"><i class="fas fa-robot"></i></div>
+                    <div class="project-overlay">
+                        <a href="#" class="project-btn"><i class="fab fa-github"></i> Code</a>
+                        <a href="#" class="project-btn"><i class="fas fa-external-link-alt"></i> Live</a>
+                    </div>
+                </div>
+                <div class="project-info">
+                    <div class="project-tags">
+                        <span class="tag">Java</span><span class="tag">Spring Boot</span><span class="tag">AI</span><span class="tag">JS</span>
+                    </div>
+                    <h3>AI-powered Assistant Web App</h3>
+                    <div style="font-size: 0.9rem; line-height: 1.4; max-height: 150px; overflow-y: auto; padding-right: 5px; margin-bottom: 10px;">
+                        <p style="margin-bottom: 8px;">Developed an AI-powered Assistant Web Application using Java Spring Boot, REST APIs, and JavaScript, integrating advanced natural language processing capabilities via external AI APIs.</p>
+                        <p style="margin-bottom: 8px;">The system enables real-time conversational interaction, where user queries are processed through a Spring Boot backend and forwarded to an AI model (e.g., OpenAI API) to generate intelligent, context-aware responses.</p>
+                        <p style="margin-bottom: 8px;">Implemented a scalable backend architecture with Controller-Service layers to handle message processing, API integration, and response formatting. Designed a responsive frontend chat interface supporting real-time messaging and smooth user interaction.</p>
+                        <p>Enhanced functionality with features like chat history management, session handling, and customizable prompts, allowing flexible and dynamic AI behavior.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== EDUCATION ===== -->
+<section id="education" class="section section-alt reveal">
+    <div class="container">
+        <div class="section-header">
+            <p class="section-tag">Academic Background</p>
+            <h2 class="section-title">My <span class="gradient-text">Education</span></h2>
+        </div>
+        <div class="timeline">
+            <div class="timeline-item reveal">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-date">Current: 6th Semester</div>
+                    <h3>Bachelor of Technology (B.Tech)</h3>
+                    <h4>Information Technology</h4>
+                    <p>Sagar Institute of Research &amp; Technology</p>
+                    <ul>
+                        <li>CGPA: 7.51</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="timeline-item reveal">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-date">Class XII</div>
+                    <h3>Higher Secondary (12th)</h3>
+                    <h4>Science Stream</h4>
+                    <p>Board Examination</p>
+                    <ul>
+                        <li>Percentage: 71.8%</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="timeline-item reveal">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-date">Class X</div>
+                    <h3>Secondary (10th)</h3>
+                    <h4>General Education</h4>
+                    <p>Board Examination</p>
+                    <ul>
+                        <li>Percentage: 71%</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== EXPERIENCE ===== -->
+<section id="experience" class="section reveal">
+    <div class="container">
+        <div class="section-header">
+            <p class="section-tag">Work History</p>
+            <h2 class="section-title">My <span class="gradient-text">Experience</span></h2>
+        </div>
+        <div class="timeline">
+            <div class="timeline-item reveal">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-date">Present</div>
+                    <h3>Aspiring Software Developer</h3>
+                    <h4>Actively seeking opportunities</h4>
+                    <ul>
+                        <li>Open to entry-level backend and full-stack development roles.</li>
+                        <li>Eager to apply skills in Java, Spring Boot, React, and MySQL to solve real-world problems.</li>
+                    </ul>
+                    <div class="exp-tags">
+                        <span>Java</span><span>Spring Boot</span><span>MySQL</span><span>React</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== CERTIFICATIONS ===== -->
+<section id="certifications" class="section section-alt reveal">
+    <div class="container">
+        <div class="section-header">
+            <p class="section-tag">Credentials</p>
+            <h2 class="section-title">Certifications &amp; <span class="gradient-text">Achievements</span></h2>
+        </div>
+        <div class="certs-grid">
+            <div class="cert-card reveal">
+                <div class="cert-icon" style="color:#f80000"><i class="fab fa-oracle"></i></div>
+                <div class="cert-info">
+                    <h3>OCI Gen AI Professional</h3>
+                    <p>Oracle</p>
+                    <span class="cert-date">Sep 2025</span>
+                </div>
+                <div class="cert-badge verified"><i class="fas fa-check-circle"></i> Verified</div>
+            </div>
+            <div class="cert-card reveal">
+                <div class="cert-icon" style="color:#007bff"><i class="fas fa-laptop-code"></i></div>
+                <div class="cert-info">
+                    <h3>Programming in Java</h3>
+                    <p>NPTEL</p>
+                    <span class="cert-date">Nov 2025</span>
+                </div>
+                <div class="cert-badge verified"><i class="fas fa-check-circle"></i> Verified</div>
+            </div>
+            <div class="cert-card reveal">
+                <div class="cert-icon" style="color:#003c71"><i class="fas fa-chart-pie"></i></div>
+                <div class="cert-info">
+                    <h3>Tata Data Visualisation</h3>
+                    <p>Forage Job Simulation</p>
+                    <span class="cert-date">Feb 2026</span>
+                </div>
+                <div class="cert-badge verified"><i class="fas fa-check-circle"></i> Verified</div>
+            </div>
+            <div class="cert-card reveal">
+                <div class="cert-icon" style="color:#10b981"><i class="fas fa-robot"></i></div>
+                <div class="cert-info">
+                    <h3>Tata GenAI Data Analytics</h3>
+                    <p>Forage Job Simulation</p>
+                    <span class="cert-date">Feb 2026</span>
+                </div>
+                <div class="cert-badge verified"><i class="fas fa-check-circle"></i> Verified</div>
+            </div>
+            <div class="cert-card reveal">
+                <div class="cert-icon" style="color:#f80000"><i class="fab fa-oracle"></i></div>
+                <div class="cert-info">
+                    <h3>OCI Data Science Pro</h3>
+                    <p>Oracle</p>
+                    <span class="cert-date">Sep 2025</span>
+                </div>
+                <div class="cert-badge verified"><i class="fas fa-check-circle"></i> Verified</div>
+            </div>
+        </div>
+        <!-- Achievements -->
+        <div class="achievements reveal">
+            <h3>Other Details</h3>
+            <div class="achievement-list">
+                <div class="achievement-item">
+                    <i class="fas fa-id-card"></i>
+                    <span>Credential ID: 012680071OCI25GAIOCP (Oracle Gen AI)</span>
+                </div>
+                <div class="achievement-item">
+                    <i class="fas fa-id-card"></i>
+                    <span>Credential ID: NPTEL25CS110S453200903 (NPTEL Java)</span>
+                </div>
+                <div class="achievement-item">
+                    <i class="fas fa-id-card"></i>
+                    <span>Credential ID: 8wg6pjXNLzkjNbFYR (Tata Data Viz)</span>
+                </div>
+                <div class="achievement-item">
+                    <i class="fas fa-id-card"></i>
+                    <span>Credential ID: rZ8AZJJLZK7fK7EDZ (Tata GenAI)</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== CONTACT ===== -->
+<section id="contact" class="section reveal">
+    <div class="container">
+        <div class="section-header">
+            <p class="section-tag">Let's Talk</p>
+            <h2 class="section-title">Get In <span class="gradient-text">Touch</span></h2>
+        </div>
+        <div class="contact-grid">
+            <div class="contact-info reveal-left">
+                <h3>I'd love to hear from you!</h3>
+                <p>Whether you have a project idea, job opportunity, collaboration proposal, or just want to say hi — my inbox is always open.</p>
+                <div class="contact-details">
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                        <div>
+                            <h4>Email</h4>
+                            <a href="mailto:kartiksharma768976@gmail.com">kartiksharma768976@gmail.com</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fas fa-phone"></i></div>
+                        <div>
+                            <h4>Phone</h4>
+                            <span>7828201241</span>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+                        <div>
+                            <h4>Location</h4>
+                            <span>Singrauli, Madhya Pradesh, India</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="social-links-contact">
+                    <a href="https://github.com/kartiksharma76" target="_blank" class="social-link-lg"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/kartikey-sharma-ab6a24293" target="_blank" class="social-link-lg"><i class="fab fa-linkedin"></i></a>
+                    <a href="mailto:kartiksharma768976@gmail.com" class="social-link-lg"><i class="fas fa-envelope"></i></a>
+                </div>
+                <div style="margin-top: 24px;">
+                    <button class="btn-outline" id="voiceFab" style="width: 100%; border-color: var(--secondary); color: var(--secondary); display: flex; justify-content: center; align-items: center; gap: 10px;">
+                        <i class="fas fa-microphone"></i> Talk to AI Avatar (Voice Connect)
+                    </button>
+                </div>
+            </div>
+            <div class="contact-form-wrapper reveal-right">
+                <form class="contact-form" id="contactForm">
+                    <div class="form-group">
+                        <input type="text" id="contactName" placeholder="Your Name" required />
+                        <label>Name</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="contactEmail" placeholder="Your Email" required />
+                        <label>Email</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="contactSubject" placeholder="Subject" required />
+                        <label>Subject</label>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="contactMessage" placeholder="Your Message" rows="5" required></textarea>
+                        <label>Message</label>
+                    </div>
+                    <button type="submit" class="btn-primary btn-full" id="submitContactBtn">
+                        <span>Send Message</span>
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                    <div class="form-status" id="formStatus"></div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+    <div class="footer-container">
+        <div class="footer-top">
+            <div class="footer-brand">
+                <a href="#home" class="nav-logo">
+                    <span class="logo-bracket">&lt;</span>KS<span class="logo-bracket">/&gt;</span>
+                </a>
+                <p>Building the future, one line of code at a time. This portfolio showcases my projects, skills, and educational journey.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Navigation</h4>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Social</h4>
+                <ul>
+                    <li><a href="https://github.com/kartiksharma76" target="_blank">GitHub</a></li>
+                    <li><a href="https://www.linkedin.com/in/kartikey-sharma-ab6a24293" target="_blank">LinkedIn</a></li>
+                    <li><a href="mailto:kartiksharma768976@gmail.com">Email</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; <span id="year"></span> Kartikey Sharma. Crafted with <i class="fas fa-heart"></i> using HTML, CSS, JavaScript.</p>
+            <p>Built with: HTML &bull; CSS &bull; JavaScript</p>
+        </div>
+    </div>
+</footer>
+
+<!-- ===== AI CHATBOT ===== -->
+<div class="ai-fab" id="aiFab" title="Ask AI about this portfolio">
+    <div class="ai-fab-inner">
+        <i class="fas fa-robot"></i>
+        <span class="ai-fab-label">AI Assistant</span>
+    </div>
+    <div class="ai-pulse"></div>
+</div>
+
+<!-- ===== PERSONALITY FAB ===== -->
+<div class="personality-fab" id="personalityFab" title="Check your personality & skills">
+    <div class="ai-fab-inner">
+        <i class="fas fa-brain"></i>
+        <span class="ai-fab-label">Dev Test</span>
+    </div>
+    <div class="ai-pulse"></div>
+</div>
+
+<div class="personality-panel" id="personalityPanel">
+    <div class="ai-chat-header">
+        <div class="ai-chat-title">
+            <i class="fas fa-microchip"></i>
+            <div>
+                <h4>Dev Analytics Test</h4>
+                <span class="ai-status">AI Personality Evaluator</span>
+            </div>
+        </div>
+        <div class="ai-chat-actions">
+            <button class="ai-close-btn" id="persCloseBtn">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+    </div>
+    
+    <div class="pers-content-container">
+        <div class="pers-step" id="persWelcome">
+            <p style="margin-bottom:20px; color:var(--text-muted);">Ready to analyze your tech personality and discover specific skills you should develop next?</p>
+            <button class="btn-primary btn-full" id="persStartBtn">Start Evaluation</button>
+        </div>
+
+        <div class="pers-step hidden" id="persQuestionArea">
+            <div class="pers-progress-container" id="persProgressContainer">
+                <div class="pers-progress-text" id="persProgressText">Question 1 of 20</div>
+                <div class="pers-progress-bar">
+                    <div class="pers-progress-fill" id="persProgressFill"></div>
+                </div>
+            </div>
+
+            <div class="pers-loader hidden" id="persLoader"><i class="fas fa-circle-notch fa-spin"></i> Compiling profile data...</div>
+            <div class="pers-question-group" id="persQuestionGroup">
+                <div class="pers-question-text" id="persQuestionText"></div>
+                <div class="pers-options" id="persOptions">
+                    <!-- Dynamic Options -->
+                </div>
+            </div>
+        </div>
+
+        <div class="pers-step hidden" id="persResultArea">
+            <h4 style="color:var(--primary); margin-bottom:10px;">Development Plan Generated</h4>
+            <div class="pers-result-text" id="persResultText"><i class="fas fa-spinner fa-spin"></i> Analyzing...</div>
+            <hr style="border:none; border-top:1px solid rgba(255,255,255,0.1); margin:15px 0;">
+            <p style="font-size:0.85rem; color:var(--text-muted); margin-bottom:15px;">Want a detailed roadmap on how to develop these specific recommendations?</p>
+            <button class="btn-outline btn-full" id="persChatBtn">Discuss with Jarvis AI</button>
+        </div>
+    </div>
+</div>
+
+<div class="ai-chat-panel" id="aiChatPanel">
+    <div class="ai-chat-header">
+        <div class="ai-chat-title">
+            <i class="fas fa-robot"></i>
+            <div>
+                <h4>Portfolio AI</h4>
+                <span class="ai-status">Powered by NVIDIA AI</span>
+            </div>
+        </div>
+        <div class="ai-chat-actions">
+            <button class="ai-analyze-btn" id="aiAnalyzeBtn" title="Analyze this portfolio">
+                <i class="fas fa-chart-line"></i>
+            </button>
+            <button class="ai-close-btn" id="aiCloseBtn">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+    </div>
+    <div class="ai-chat-messages" id="aiChatMessages">
+        <div class="ai-message bot">
+            <i class="fas fa-robot ai-avatar"></i>
+            <div class="ai-bubble">
+                Hello! I am the AI assistant for this portfolio, powered by NVIDIA AI. Ask me anything about the portfolio owner's skills, projects, or experience. I can also analyze sections and suggest improvements!
+            </div>
+        </div>
+    </div>
+    <div class="ai-chat-input">
+        <input type="text" id="aiInput" placeholder="Ask me anything..." />
+        <button id="aiSendBtn">
+            <i class="fas fa-paper-plane"></i>
+        </button>
+    </div>
+</div>
+<!-- ===== GOD MODE ADMIN OVERLAY ===== -->
+<div id="godModeOverlay" class="god-mode-overlay hidden">
+    <div class="god-mode-content">
+        <h2 class="god-mode-title"><i class="fas fa-shield-alt"></i> ADMIN OVERRIDE GRANTED</h2>
+        <div class="mic-container">
+            <div class="mic-pulse"></div>
+            <i class="fas fa-microphone" id="adminMicIcon"></i>
+        </div>
+        <p class="god-mode-status" id="godModeStatus">Awaiting vocal command...</p>
+        <p class="god-mode-transcript" id="godModeTranscript"></p>
+        <div class="god-mode-loader hidden" id="godModeLoader"><i class="fas fa-cog fa-spin"></i> Bypassing mainframe and compiling DOM Mutation Protocol...</div>
+        <button class="ai-close-btn" id="godModeHideBtn" style="position:absolute; top: 20px; right: 20px;"><i class="fas fa-times"></i></button>
+    </div>
+</div>
+
+<!-- ===== LOGIN / REGISTER MODAL ===== -->
+<div class="modal-overlay" id="authModal">
+    <div class="modal">
+        <button class="modal-close" id="closeModal"><i class="fas fa-times"></i></button>
+        <div class="modal-tabs">
+            <button class="modal-tab active" data-tab="login">Login</button>
+            <button class="modal-tab" data-tab="register">Register</button>
+        </div>
+
+        <!-- Login Form -->
+        <div class="modal-body active" id="loginTab">
+            <h2>Welcome Back</h2>
+            <p>Sign in to access your dashboard</p>
+            <form id="loginForm">
+                <div class="form-group">
+                    <input type="email" id="loginEmail" placeholder="Email Address" required />
+                    <label>Email</label>
+                </div>
+                <div class="form-group">
+                    <input type="password" id="loginPassword" placeholder="Password" required />
+                    <label>Password</label>
+                </div>
+                <button type="submit" class="btn-primary btn-full">
+                    <i class="fas fa-sign-in-alt"></i> Sign In
+                </button>
+                <div class="auth-status" id="loginStatus"></div>
+            </form>
+        </div>
+
+        <!-- Register Form -->
+        <div class="modal-body" id="registerTab">
+            <h2>Create Account</h2>
+            <p>Join to unlock all features</p>
+            <form id="registerForm">
+                <div class="form-group">
+                    <input type="text" id="regUsername" placeholder="Username" required />
+                    <label>Username</label>
+                </div>
+                <div class="form-group">
+                    <input type="email" id="regEmail" placeholder="Email Address" required />
+                    <label>Email</label>
+                </div>
+                <div class="form-group">
+                    <input type="password" id="regPassword" placeholder="Password (min 6 chars)" required />
+                    <label>Password</label>
+                </div>
+                <button type="submit" class="btn-primary btn-full">
+                    <i class="fas fa-user-plus"></i> Create Account
+                </button>
+                <div class="auth-status" id="registerStatus"></div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- ===== USER DASHBOARD (shown when logged in) ===== -->
+<div class="user-dashboard" id="userDashboard" style="display:none">
+    <div class="dashboard-header">
+        <h3><i class="fas fa-tachometer-alt"></i> Dashboard</h3>
+        <button id="closeDashboard"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="dashboard-content">
+        <div class="dashboard-user">
+            <i class="fas fa-user-circle user-avatar-icon"></i>
+            <div>
+                <h4 id="dashUsername">Username</h4>
+                <p id="dashEmail">email@example.com</p>
+            </div>
+        </div>
+        <div class="dashboard-stats" id="dashStats">
+            <div class="dash-stat"><span id="dashProjects">8</span><small>Projects</small></div>
+            <div class="dash-stat"><span id="dashSkills">15</span><small>Skills</small></div>
+            <div class="dash-stat"><span id="dashMessages">0</span><small>Messages</small></div>
+            <div class="dash-stat"><span id="dashExp">1</span><small>Years Exp.</small></div>
+        </div>
+        <button class="btn-outline btn-full" id="logoutBtn">
+            <i class="fas fa-sign-out-alt"></i> Logout
+        </button>
+    </div>
+</div>
+
+<!-- ===== AI ANALYZE PANEL ===== -->
+<div class="analyze-panel" id="analyzePanel" style="display:none">
+    <div class="analyze-header">
+        <h3><i class="fas fa-chart-line"></i> AI Portfolio Analysis</h3>
+        <button id="closeAnalyze"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="analyze-content">
+        <p>Select a section to get AI-powered improvement suggestions:</p>
+        <select id="analyzeSection" class="analyze-select">
+            <option value="about">About Section</option>
+            <option value="skills">Skills Section</option>
+            <option value="projects">Projects Section</option>
+            <option value="experience">Experience Section</option>
+            <option value="overall">Overall Portfolio</option>
+        </select>
+        <button class="btn-primary" id="runAnalyzeBtn">
+            <i class="fas fa-magic"></i> Run Analysis
+        </button>
+        <div class="analyze-result" id="analyzeResult" style="display:none">
+            <div class="score-ring">
+                <svg viewBox="0 0 120 120">
+                    <circle cx="60" cy="60" r="50" fill="none" stroke="var(--border)" stroke-width="10"/>
+                    <circle cx="60" cy="60" r="50" fill="none" stroke="var(--primary)" stroke-width="10"
+                        stroke-dasharray="314" stroke-dashoffset="314" id="scoreCircle"
+                        stroke-linecap="round" transform="rotate(-90 60 60)"/>
+                </svg>
+                <div class="score-text"><span id="scoreValue">0</span><small>/100</small></div>
+            </div>
+            <div class="analyze-text" id="analyzeText"></div>
+            <div class="improvements-list" id="improvementsList"></div>
+        </div>
+    </div>
+</div>
+
+<div id="toast" class="toast"></div>
+
+<script src="js/main.js"></script>
+</body>
+</html>
