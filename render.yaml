@@ -1,7 +1,7 @@
 services:
   # MySQL Private Service (accessible only internally by the Spring Boot app)
   - type: pservice
-    name: portfolio-mysql
+    name: kartiksharma-mysql
     runtime: docker
     dockerfilePath: Dockerfile.mysql
     envVars:
@@ -16,17 +16,18 @@ services:
 
   # Spring Boot Web Service
   - type: web
-    name: portfolio-backend
+    name: kartiksharma
     runtime: docker
     dockerfilePath: Dockerfile
     plan: free
     envVars:
       - key: SPRING_DATASOURCE_URL
-        value: jdbc:mysql://portfolio-mysql:3306/portfolio_db?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
+        value: jdbc:mysql://kartiksharma-mysql:3306/portfolio_db?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
       - key: SPRING_DATASOURCE_USERNAME
         value: root
       - key: SPRING_DATASOURCE_PASSWORD
         value: Kartik@2005
+      # Environment variables for other config:
       - key: JWT_SECRET
         value: mySecretKeyForPortfolioApp2024VeryLongAndSecure!@#$%
       - key: NVIDIA_API_KEY
