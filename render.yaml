@@ -1,6 +1,6 @@
 services:
   # MySQL Private Service (accessible only internally by the Spring Boot app)
-  - type: pservice
+  - type: pserv
     name: kartiksharma-mysql
     runtime: docker
     dockerfilePath: Dockerfile.mysql
